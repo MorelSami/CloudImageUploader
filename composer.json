@@ -1,17 +1,11 @@
 {
     "name": "morelsami/rukbechallenge",
     "version": "1.0.0",
-    "repositories": [
-        {
-            "type": "vcs",
-            "url": "https://github.com/MorelSami/RukbeChallenge"
-        }
-    ],
     "autoload": {
         "psr-4": {"Rukbe\\": "app/"}
     },
     "require": {
-        "monolog/monolog": "2.0.*",
+        "monolog/monolog": "^2.0.0",
         "vlucas/phpdotenv": "^5.0"
     },
     "require-dev": {
