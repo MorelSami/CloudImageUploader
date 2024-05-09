@@ -1,0 +1,6 @@
+#Ignore the git and cache files
+.git
+.cache
+
+#Ignore the readme file
+README.md
