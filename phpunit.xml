@@ -15,6 +15,6 @@
         </include>
     </source>
     <php>
-        <env name="ENVIRONMENT" value="development"/>
+        <env name="APP_ENV" value="development"/>
     </php>
 </phpunit>

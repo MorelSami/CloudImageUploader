@@ -1,21 +1,26 @@
 <?php
-require_once  vendor/autoload.php;
+
+use Dotenv\Dotenv;
+
+require_once  'vendor/autoload.php';
 
 //load environmental variable file [.env]
 $dotenv = Dotenv::createImmutable(__DIR__);
 $dotenv->load();
-define('ENVIRONMENT', $_ENV['ENVIRONMENT']);
+define('APP_ENV', $_ENV['APP_ENV']);
 
-switch (ENVIRONMENT)
+switch (APP_ENV)
 {
 	case 'development':
 		error_reporting(-1);
 		ini_set('display_errors', 1);
+		ini_set('file_uploads', 'on');
 	break;
 
 	case 'testing':
 	case 'production':
 		ini_set('display_errors', 0);
+		ini_set('file_uploads', 'on');
 	break;
 
 	default:
