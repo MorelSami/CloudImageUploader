@@ -14,8 +14,8 @@ COPY . .
 
 RUN composer install
 
-EXPOSE 8000
+EXPOSE 8086
 
 #run built-in php-server for now
-CMD [ "php", "-S", "localhost:8000" ]
+CMD [ "php", "-S", "localhost:8086" ]
 

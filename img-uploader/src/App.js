@@ -12,6 +12,7 @@ function App() {
 
 	const fileInputRef = useRef(null);
 
+  //set image file upload
 	const handleFileChange = (event) => {
 
 		const file = event.target.files[0];
@@ -27,7 +28,7 @@ function App() {
 			else
 			{
 				setSelectedFile(null);
-				setValidationError('Invalid file extension. Please select a file with .jpg or .png extension.');
+				setValidationError('Invalid file extension. Please select a file with .jpg or .jpeg or .gif or .png extension.');
 				fileInputRef.current.value = '';
 			}
 		}
@@ -39,7 +40,7 @@ function App() {
 		{
 			const formData = new FormData();
 			formData.append('file', selectedFile);
-			const response = await fetch('http://localhost/tutorial/file-upload/api/upload.php', {
+			const response = await fetch('http://localhost:8086/server.php', {
 				method : 'POST',
 				body : formData
 			});
@@ -80,9 +81,9 @@ function App() {
 
                         {imageLink && (
                         	<div>
-                                <p><b className='wording'>Uploaded Image : </b></p>
-                                <img src={imageLink} className="img-fluid img-thumbnail" />
-                            </div>
+                            <p><b className='wording'>Uploaded Image : </b></p>
+                            <img src={imageLink} className="img-fluid img-thumbnail" />
+                          </div>
                         )}
                     </div>
                 </div>
