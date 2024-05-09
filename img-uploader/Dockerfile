@@ -4,11 +4,12 @@ ENV NODE_ENV=development
 
 WORKDIR /src
 
-COPY package*.json .
+COPY package*.json /src/
 
 RUN npm install
 
+COPY . .
+
 EXPOSE 3000
 
-#run built-in php-server for now
 CMD ["npm", "start" ]

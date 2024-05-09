@@ -36,3 +36,11 @@
     transform: rotate(360deg);
   }
 }
+
+.container {
+  margin: 50px;
+}
+
+.header, .wording {
+  font-variant-caps: all-small-caps;
+}
