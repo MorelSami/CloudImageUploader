@@ -1,4 +1,4 @@
-FROM php:8.2-apache
+FROM php:8.2-cli
 
 RUN apt-get update && apt-get upgrade -y
 
@@ -8,7 +8,7 @@ RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local
 ENV APP_ENV=development
 
 #working directory
-WORKDIR /app 
+WORKDIR /var/www/app 
 
 COPY . .
 
@@ -17,5 +17,5 @@ RUN composer install
 EXPOSE 8086
 
 #run built-in php-server for now
-CMD [ "php", "-S", "localhost:8086" ]
+CMD [ "php", "-S", "0.0.0.0:8086", "-t", "/var/www/app" ]
 

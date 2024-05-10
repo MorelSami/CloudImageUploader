@@ -5,11 +5,9 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 function App() {
 
   const [selectedFile, setSelectedFile] = useState(null);
-
 	const [imageLink, setImageLink] = useState(null);
-
-	const [validationError, setValidationError] = useState(null);
-
+	const [errorMsg, setErrorMsg] = useState(null);
+  const [validMsg, setValidMsg] = useState(null);
 	const fileInputRef = useRef(null);
 
   //set image file upload
@@ -23,12 +21,12 @@ function App() {
 			if(allowedExtension.includes('.' + selectedFileExtension))
 			{
 				setSelectedFile(file);
-				setValidationError(null);
+				setErrorMsg(null);
 			}
 			else
 			{
 				setSelectedFile(null);
-				setValidationError('Invalid file extension. Please select a file with .jpg or .jpeg or .gif or .png extension.');
+				setErrorMsg('Invalid file extension. Please select a file with .jpg or .jpeg or .gif or .png extension.');
 				fileInputRef.current.value = '';
 			}
 		}
@@ -46,18 +44,24 @@ function App() {
 			});
 
 			const responseData = await response.json();
-			setImageLink(responseData.image_link);
+      if(responseData.success) {
+        setImageLink(responseData.image_link);
+        setValidMsg(responseData.msg)
+      } else {
+        setErrorMsg(responseData.msg);
+      }
+			
 			fileInputRef.current.value = '';
 		}
 		else
 		{
-			setValidationError('Please select a file before uploading.');
+			setErrorMsg('Please select a file before uploading.');
 		}
 	};
 
   return (
     <div className="container">
-
+        <h4><img src='rukbe_logo.jpg' alt='' className='img-fluid img'></img>Image Uploader</h4>
         <div className="card">
             <div className="card-header header">Please upload an image</div>
             <div className="card-body">
@@ -73,16 +77,20 @@ function App() {
                     </div>
                 </div>
                 <div className="row">
-                    <div className="col col-2">&nbsp;</div>
-                    <div className="col col-3">
-                        {validationError && (
-                        	<p className="text-danger">{validationError}</p>
+                    <div className="col spacing">
+                        {errorMsg && (
+                          <div className="alert alert-danger wording" role="alert">
+                            {errorMsg}
+                          </div>
                         )}
 
                         {imageLink && (
                         	<div>
+                            <div className="alert alert-success wording" role="alert">
+                              {validMsg}
+                            </div>
                             <p><b className='wording'>Uploaded Image : </b></p>
-                            <img src={imageLink} className="img-fluid img-thumbnail" />
+                            <img src={imageLink} className="img-fluid img-thumbnail" alt='Uploded pic'/>
                           </div>
                         )}
                     </div>

@@ -1,9 +1,11 @@
 #Ignore the front-end directory
 img-uploader/
+uploads/*
 
 #Ignore the git and cache files
 .git
 .cache
+.env
 
 #Ignore the readme file
 README.md

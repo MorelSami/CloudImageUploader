@@ -5,32 +5,27 @@ header("Access-Control-Allow-Origin:* ");
 header("Access-Control-Allow-Headers: *");
 header("Access-Control-Allow-Methods: *");
 
-print('Server information:');
 $serverInfo = [
-    'ip_addr' => $_SERVER['SERVER_ADDR'],
+    'ip_addr' => $_SERVER['PHP_SELF'],
     'host_name' => $_SERVER['SERVER_NAME'],
     'port_number' => $_SERVER['SERVER_PORT'],
     'software' => $_SERVER['SERVER_SOFTWARE'],
     'request_method'=> $_SERVER['REQUEST_METHOD'],
 ];
 
-print_r($serverInfo).PHP_EOL;
-
-
-if ($serverInfo['request_method'] == 'POST') {  
-
+if ($serverInfo['request_method'] == 'POST') {
+    
+    error_log('Image upload processing ...');
     $targetDir = "uploads/";
     $filename= $targetDir . basename($_FILES["file"]["name"]);
     $imageFileType = strtolower(pathinfo($filename,PATHINFO_EXTENSION));
     $uploadFlag = true;
 
-    uploadImage($filename, $imageFileType, $uploadFlag, $serverInfo); //process the upload file
+    uploadImage($filename, $imageFileType, $uploadFlag); //process the upload file
 
 }
 
-die('Unauthorized request method.');
-
-function uploadImage($filename, $imageFileType, $uploadFlag, $serverInfo) {
+function uploadImage($filename, $imageFileType, $uploadFlag) {
     
     try {
         // Check file size
@@ -56,20 +51,29 @@ function uploadImage($filename, $imageFileType, $uploadFlag, $serverInfo) {
             throw new \Exception("Sorry, your image was not uploaded.");
         } else {
             if (move_uploaded_file($_FILES["file"]["tmp_name"], $filename)) {
-                echo json_encode([
+
+                $result = [
                     'success' => true, 
-                    'message' => 'File uploaded successfully', 
-                    'image_link' => "{$serverInfo['host_name']}:{$serverInfo['port_number']}/{$filename}"
-                ]);
+                    'msg' => 'File uploaded successfully', 
+                    'image_link' => "{$_ENV['APP_URL']}/{$filename}"
+                ];
+                error_log(json_encode($result));
+                echo json_encode($result);
             } else {
-              echo "Sorry, there was an error uploading your image.";
+                $result = [
+                    'success' => false, 
+                    'msg' => 'Sorry, there was an error uploading your image.', 
+                    'image_link' => ''
+                ];
+                error_log(json_encode($result));
+                echo json_encode($result);
             }
         }
     } catch (\Exception $e) {
         error_log($e->getMessage());
         echo json_encode([
-            'success' => false, 
-            'msg' => 'File upload unsuccessful'
+            'success' => false,
+            'msg' => $e->getMessage()
         ]);
     
     }
