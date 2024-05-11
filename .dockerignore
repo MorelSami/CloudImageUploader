@@ -1,5 +1,6 @@
 #Ignore the front-end directory
-img-uploader/
+img-uploader
+#Ignore the uploaded pictures
 uploads/*
 
 #Ignore the git and cache files
@@ -7,5 +8,6 @@ uploads/*
 .cache
 .env
 
-#Ignore the readme file
+#Ignore specific files
 README.md
+run.sh

@@ -38,7 +38,7 @@ function App() {
 		{
 			const formData = new FormData();
 			formData.append('file', selectedFile);
-			const response = await fetch(process.env.UPLOADER_API, {
+			const response = await fetch('http://localhost:8086/server.php', {
 				method : 'POST',
 				body : formData
 			});

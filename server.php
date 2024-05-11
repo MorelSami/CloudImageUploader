@@ -60,10 +60,10 @@ function uploadImage($filename, $imageFileType, $uploadFlag) {
                 error_log(json_encode($result));
                 echo json_encode($result);
             } else {
+                echo json_encode(['success' => 'morel']);
                 $result = [
                     'success' => false, 
-                    'msg' => 'Sorry, there was an error uploading your image.', 
-                    'image_link' => ''
+                    'msg' => 'Sorry, there was an error uploading your image.',
                 ];
                 error_log(json_encode($result));
                 echo json_encode($result);
