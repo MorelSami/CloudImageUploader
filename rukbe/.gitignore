@@ -13,7 +13,7 @@
 
 # misc
 .DS_Store
-cert/*
+cert/localhost*
 .env
 
 npm-debug.log*
