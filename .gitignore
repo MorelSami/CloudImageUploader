@@ -4,3 +4,4 @@ uploads/*
 !uploads/readme.txt
 cert/localhost*
 run-local.sh
+config/ssl-certificate-install-local.sh
