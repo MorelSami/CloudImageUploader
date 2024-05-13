@@ -5,15 +5,7 @@ header("Access-Control-Allow-Origin:* ");
 header("Access-Control-Allow-Headers: *");
 header("Access-Control-Allow-Methods: *");
 
-$serverInfo = [
-    'ip_addr' => $_SERVER['PHP_SELF'],
-    'host_name' => $_SERVER['SERVER_NAME'],
-    'port_number' => $_SERVER['SERVER_PORT'],
-    'software' => $_SERVER['SERVER_SOFTWARE'],
-    'request_method'=> $_SERVER['REQUEST_METHOD'],
-];
-
-if ($serverInfo['request_method'] == 'POST') {
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     
     error_log('Image upload processing ...');
     $targetDir = "uploads/";

@@ -1,6 +1,8 @@
 #Ignore the git and cache files
 .git
 .cache
+.env*
+node_modules
 
 #Ignore the readme file
 README.md

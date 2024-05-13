@@ -25,6 +25,6 @@ mkcert -install
 # but those domain names are to be added to /etc/hosts config file
 mkcert localhost rukbe-front.local rukbe-api.local 127.0.0.1
 
-# copy SSL certificates w/ key to the `config` and `cert` folder in the project repository
-cp ~/localhost* config/     #back-end repo
-cp ~/localhost* rukbe/cert/ #front-end repo
+# copy SSL certificates w/ key to the `cert` folder in the project repository
+cp ~/localhost* cert/     #back-end repo (root directroy)
+cp ~/localhost* rukbe/cert/ #front-end repo (rukbe)

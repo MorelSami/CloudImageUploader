@@ -6,8 +6,9 @@ uploads/*
 #Ignore the git and cache files
 .git
 .cache
-.env
+.env*
 
 #Ignore specific files
 README.md
 run.sh
+run-local.sh
