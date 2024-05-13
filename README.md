@@ -12,7 +12,7 @@
 
 >Warning: The _cert-key.pem & _cert.pem files in the __cert__ folder are just tmp files to keep the application running if you decide not to proceed with the *mkcert root CA installation* in your local. In this case, the https sites will not be recognized by any browser but will still function if acknowledged by you.
 
-- git clone <b>https://github.com/MorelSami/RukbeChallenge.git</b>
+- Clone project repo <b>https://github.com/MorelSami/RukbeChallenge.git</b> to your workspace.
 - Inside the project repository run `sh config/ssl-certificate-install.sh`. *(Please first check the file to have a brief understanding of what it does)*
 - Create an environment variable file `.env` in both the root directory and `rukbe` directory (front-end) using `.env.sample` as reference (__using the same content should be fine__).
 - Run `composer install` in the root directory.
@@ -21,6 +21,6 @@
 
 ### Execution
 
-- sh run.sh 
+- `sh run.sh` 
 
 Enjoy!!
