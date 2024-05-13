@@ -12,10 +12,8 @@
 
 1. Ensure you have **git** & **docker** installed in your system.
 2. Clone project repo <b>https://github.com/MorelSami/RukbeChallenge.git</b> to your workspace.
-3. In `config/ssl-certificate-install.sh` file, update `{path/to/cloned-project-repository}` with `actual path of the project repository`. 
-> *(Please first check the file to have a brief understanding of what it does)*
-4. Run `sh config/ssl-certificate-install.sh`. 
-> *(Please skip this step if you decided not install a local CA using `mkcert`)*
+3. In `config/ssl-certificate-install.sh` file, update `{path/to/cloned-project-repository}` with `actual path of the project repository`. __**(Please first check the file to have a brief understanding of what it does)**__
+4. Run `sh config/ssl-certificate-install.sh`. __**(Please skip this step if you decided not install a local CA using `mkcert`)**__
 5. Create an environment variable file `.env` in both the root directory and `rukbe` directory (front-end) using `.env.sample` as reference (__using the same content should be fine__).
 6. Run `composer install` in the root directory.
 7. Run `npm install` in the `rukbe` (front-end) directory.
