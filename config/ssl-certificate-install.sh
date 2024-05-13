@@ -11,7 +11,6 @@ mkdir mkcert
 cd mkcert
 git clone https://github.com/FiloSottile/mkcert .
 
-
 # build mkcert
 go build -ldflags "-X main.Version=$(git describe --tags)"
 
@@ -21,5 +20,11 @@ sudo ln -s $PWD/mkcert /usr/bin/mkcert
 # install mkcert root certificate
 mkcert -install
 
-# install root certificate for `localhost`` domain in a specific directory
-mkcert -key-file ~/certs/localhost-key.pem -cert-file ~/certs/localhost-cert.pem localhost
+# Generate a trusted SSL certificate for the listed domains
+# You can add or update the existing domain names to any of your choice 
+# but those domain names are to be added to /etc/hosts config file
+mkcert localhost rukbe-front.local rukbe-api.local 127.0.0.1
+
+# copy SSL certificates w/ key to the `config` and `cert` folder in the project repository
+cp ~/localhost* config/     #back-end repo
+cp ~/localhost* rukbe/cert/ #front-end repo
