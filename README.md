@@ -21,9 +21,9 @@
 
 ### Execution
 
-8. If you skipped `step 4` above, please perform the following steps below else skip to `step 9`: (*These steps should allow you run the application using an unsecured protcol(HTTP)*)
+8. If you skipped `step 4` above, please perform the following steps below else skip to `step 9`: (*These steps should allow you run the application using an unsecured protocol(HTTP)*)
   - In the `rukbe` directory, Update env variable `HTTPS=false`and instead use the unsecured access variable `REACT_APP_API_ENDPOINT` in `.env` file. 
-  - In the root directory, instead use the unsecured access variable `APP_URL` in `.env`file and comment out `line 13-14` in the `Dockerfile` file for the backend server. 
+  - In the root directory, instead use the unsecured access variable `APP_URL` in `.env` file and comment out `line 13-14` in the `Dockerfile` file for the backend server. 
 9. `sh run.sh`
 
 Enjoy!!
