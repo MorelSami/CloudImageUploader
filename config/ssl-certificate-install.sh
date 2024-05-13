@@ -1,4 +1,7 @@
 #Basically helps you create a trusted SSL certificate locally using the `mkcert` tool
+#Generate an SSL certificate w/ key for any chosen domain name configured in /etc/hosts
+
+#!bin/bash
 
 # install libnss3-tools
 sudo apt install libnss3-tools
