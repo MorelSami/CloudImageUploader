@@ -9,8 +9,8 @@ sudo apt install libnss3-tools
 # install go
 sudo apt-get install golang-go -y
 
-# download mkcert
-mkdir mkcert
+# download mkcert in home directory
+cd ~ && mkdir mkcert
 cd mkcert
 git clone https://github.com/FiloSottile/mkcert .
 
@@ -29,5 +29,5 @@ mkcert -install
 mkcert localhost rukbe-front.local rukbe-api.local 127.0.0.1
 
 # copy SSL certificates w/ key to the `cert` folder in the project repository
-cp ~/localhost* cert/     #back-end repo (root directroy)
-cp ~/localhost* rukbe/cert/ #front-end repo (rukbe)
+cp ~/mkcert/localhost* /{path/to/cloned-project-repository}/cert/     #back-end repo (root directroy)
+cp ~/mkcert/localhost* /{path/to/cloned-project-repository}/rukbe/cert/ #front-end repo (rukbe)

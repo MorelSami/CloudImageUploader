@@ -8,3 +8,4 @@ docker build -t rukbe/front rukbe/
 docker run -d -p 3000:3000 -e VIRTUAL_HOST=rukbe-front.local -v /{path/to/cloned-project-repository}/rukbe:/src --restart=always --name=rukbe-front rukbe/front:latest 
 
 echo 'Rukbe Image Uploader is now ready at https://localhost:3000 or https://rukbe-front.local:3000'
+echo 'Note: If SSL certificate option not enabled then use http://localhost:3000 or http://rukbe-front.local:3000

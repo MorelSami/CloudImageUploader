@@ -1,6 +1,6 @@
 vendor
 .env
 uploads/*
-!uploads/.info*
+!uploads/readme.txt
 cert/localhost*
 run-local.sh
