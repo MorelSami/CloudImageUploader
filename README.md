@@ -8,6 +8,14 @@
 
 <img src="./rukbe_uploader.png" alt="Rukbe Image Uploader"/>
 
+### Software Requirements __(Local)__
+
+- PHP 8.2^
+- Composer v2.5^
+- Node/Npm latest
+- Git
+- Docker
+
 ### Install requirements w/ <a href='https://github.com/FiloSottile/mkcert#installing-the-ca-on-other-systems' target='blank'>`mkcert`</a> __(A locally-trusted development certificate generator tool)__
 
 1. Ensure you have **git** & **docker** installed in your system.
