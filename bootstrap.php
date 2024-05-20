@@ -6,7 +6,9 @@ require_once  'vendor/autoload.php';
 
 //load environmental variable file [.env]
 $dotenv = Dotenv::createImmutable(__DIR__);
-$dotenv->load();
+if(file_exists(".env")) {
+    $dotenv->load();
+}
 define('APP_ENV', $_ENV['APP_ENV']);
 
 switch (APP_ENV)

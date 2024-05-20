@@ -3,5 +3,5 @@ vendor
 uploads/*
 !uploads/readme.txt
 cert/localhost*
-run-local.sh
+run-local-ms.sh
 config/ssl-certificate-install-local.sh

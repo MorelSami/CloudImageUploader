@@ -1,9 +1,9 @@
 <?php 
 require 'bootstrap.php';
 
-header("Access-Control-Allow-Origin:* ");
+header("Access-Control-Allow-Origin: *");
+header("Access-Control-Allow-Methods: GET, POST, OPTIONS");
 header("Access-Control-Allow-Headers: *");
-header("Access-Control-Allow-Methods: *");
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     
@@ -29,7 +29,7 @@ function uploadImage($filename, $imageFileType, $uploadFlag) {
         // Check if image already exists
         if (file_exists($filename)) {
            $uploadFlag = false;
-           throw new \Exception("Sorry, file already exists.", 404);
+           throw new \Exception("Sorry, file `{$filename}` already exists.", 404);
         }
     
         // Allow specific file format types
