@@ -10,5 +10,5 @@ uploads/*
 
 #Ignore specific files
 README.md
-run.sh
-run-local.sh
+run-http*
+run-local*
