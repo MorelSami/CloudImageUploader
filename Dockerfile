@@ -5,6 +5,7 @@ FROM php:8.2-apache
 RUN a2enmod ssl && a2enmod rewrite
 RUN mkdir -p /etc/apache2/ssl
 RUN apt-get update && apt-get upgrade -y
+RUN apt-get install zip unzip
 
 # Install Composer
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
