@@ -1,4 +1,4 @@
-# Rukbe Coding Challenge
+# Image Uploader Application (Cloud)
 
 <pre>
    An image uploader application that allows a user to upload any image from their pc/laptop to the server.
@@ -11,7 +11,7 @@
 ### Install requirements w/ <a href='https://github.com/FiloSottile/mkcert#installing-the-ca-on-other-systems' target='blank'>`mkcert`</a> __(A locally-trusted development certificate generator tool)__
 
 1. Ensure you have **git** & **docker** installed in your system.
-2. Clone project repo <b>https://github.com/MorelSami/RukbeChallenge.git</b> to your workspace.
+2. Clone project repo <b>https://github.com/MorelSami/CloudImageUploader.git</b> to your workspace.
 3. In `config/ssl-certificate-install.sh` file, update `{path/to/cloned-project-repository}` with `actual path of the project repository`. __**(Please first check the file to have a brief understanding of what it does)**__
 4. Run the command `sh config/ssl-certificate-install.sh`. __**(Please skip this step if you decide not to install a local CA using `mkcert`)**__
 
